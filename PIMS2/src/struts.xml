@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name = "loginAction" class="edu.login.LoginAction">
+        	<result name="success">/mainFrame/main.jsp</result>
+            <result name="input">/login/login.jsp</result>
+            <result name="error">/login/login.jsp</result>
+        </action>
+        
+        <action name="registerAction" class="edu.login.RegisterAction">
+            <result name="success">/login/login.jsp</result>
+            <result name="input">/login/register.jsp</result>
+            <result name="error">/login/register.jsp</result>
+        </action>
+
+    </package>
+
+
+    <!-- Add packages here -->
+
+</struts>
